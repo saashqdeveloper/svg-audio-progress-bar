@@ -1,4 +1,3 @@
-gsap.registerPlugin(Draggable, MotionPathPlugin);
 const audioProgressbar = {
     self: null, // pointer to self [audioProgressbar] to fix 'this' binding issue.
     container: null,
@@ -9,6 +8,8 @@ const audioProgressbar = {
     pathOverlay: null,
     overlayLength: 0,
     dot: null,
+    currenTimeContainer: null,
+    totalTimeContainer: null,
     init: (containerEl, audioEl, curveEl, dotEl) => {
         self = audioProgressbar;
         self.container = document.getElementById(containerEl);
@@ -21,11 +22,16 @@ const audioProgressbar = {
         self.audio = document.getElementById(audioEl);
         self.audio.addEventListener('loadedmetadata', () => {
             self.audioDuration = self.audio.duration;
+            self.totalTimeContainer = document.getElementById('total-time');
+            self.currenTimeContainer = document.getElementById('current-time');
+            self.totalTimeContainer.innerHTML = self.convertTime(self.audio.duration);
+            self.currenTimeContainer.innerHTML = self.convertTime(self.audio.currentTime);
         });
         self.audio.ontimeupdate = () => {
             let percentage = self.audio.currentTime / self.audio.duration;
             self.timeline.progress(percentage);
             self.renderPath(percentage);
+            self.currenTimeContainer.innerHTML = self.convertTime(self.audio.currentTime);
         }
     },
     draggableInit: (curveEl, dotEl) => {
@@ -43,7 +49,7 @@ const audioProgressbar = {
                     autoRotate: true,
                     alignOrigin: [0.5, 0.5]
                 }, immediateRender: true, ease: "none"
-            })
+            });
 
         Draggable.create(self.dot, {
             type: "x",
@@ -73,6 +79,7 @@ const audioProgressbar = {
     renderPath: (percentage) => {
         let length = self.overlayLength * percentage;
         self.pathOverlay.style.strokeDashoffset = self.overlayLength - length;
+
     },
     convertTime: (inputSeconds) => {
         let seconds = Math.floor(inputSeconds % 60);
@@ -82,5 +89,6 @@ const audioProgressbar = {
         let minutes = Math.floor(inputSeconds / 60);
         return minutes + ":" + seconds
     }
+
 };
 audioProgressbar.init('audio-container', 'podcast-audio', '#curve', '#dot');

@@ -4,19 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Tracker</title>
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .main-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vh;
+            text-align: center;
+        }
+
+        .main-container audio {
+            margin-bottom: 40px;
+        }
+
+        .main-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .main-container #current-time {
+            position: absolute;
+            left: -40px;
+            bottom: 0;
+        }
+
+        .main-container #total-time {
+            position: absolute;
+            right: -40px;
+            top: 100px;
+        }
+    </style>
 </head>
 <body>
-<div id="audio-container">
-    <audio src="assets/audio/audio.mp3" controls id="podcast-audio"
-    ></audio>
-</div>
-<svg x="0px" y="0px" viewBox="0 0 439.9 75.9" style="enable-background:new 0 0 439.9 75.9;" xml:space="preserve"
-     id="progressbar-container">
+<div class="main-container">
+    <div id="audio-container">
+        <audio src="assets/audio/audio.mp3" controls id="podcast-audio"
+        ></audio>
+    </div>
+    <svg x="0px" y="0px" viewBox="0 0 439.9 75.9" style="enable-background:new 0 0 439.9 75.9;" xml:space="preserve"
+         id="progressbar-container">
 
     <path id="curve" fill-opacity="0" stroke-width="1" stroke="#000" d="M6.1,69.4c8.8-20.8,44.3-62.6,116.1-63c17.5,0.4,61.4,8.3,87.3,29.9c10.1,9.1,36.2,34,69.2,30.8
 				c23.7-2.3,33.7-5.5,64.3-28.1c14.4-14.5,43.7-35.9,91.2-33"/>
-    <circle r="3" cy="0" cx="0" id="dot" style="fill: #dd1819"/>
+        <circle r="3" cy="0" cx="0" id="dot" style="fill: #dd1819"/>
 			</svg>
+
+    <div id="current-time"></div>
+    <div id="total-time"></div>
+
+</div>
 
 </body>
 <script src="assets/vendor/gsap/gsap.min.js"></script>
