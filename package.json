@@ -1,0 +1,18 @@
+{
+  "name": "svg-audio-progress-bar",
+  "version": "1.1.0",
+  "description": "Custom SVG Audio Progress Bar",
+  "main": "src/audioProgressbar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Audio",
+    "Progress Bar",
+    "SVG",
+    "Vanilla",
+    "Javascript"
+  ],
+  "author": "StudioMatrix Pvt. Ltd",
+  "license": "ISC"
+}
