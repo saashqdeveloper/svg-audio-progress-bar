@@ -1,6 +1,6 @@
-# GSAP SVG Audio Progress bar
+# SVG Audio Progress bar using Greensock GSAP
 
-> Custom SVG path audio progressbar using GSAP.
+> Custom SVG path audio progressbar using [GSAP](https://greensock.com/gsap).
 
 ## Main
 
