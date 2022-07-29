@@ -6,7 +6,7 @@
 
 ```text
 src/
-├── audioProgessbar.js 
+├── audioProgessbar.js
 ```
 
 ## Getting started
@@ -27,20 +27,23 @@ In browser:
 #### Syntax
 
 ```js
-audioProgressbar.init('audio-container', 'podcast-audio', '#curve', '#dot'); 
+audioProgressbar.init("audio-container", "podcast-audio", "#curve", "#dot");
 ```
 
-- **audio-container**  
+- **audio-container**
+
   - The target id of the audio container.
 
 - **podcast-audio**
+
   - The target id of audio tag
 
 - **#curve**
-   - The target id of progressbar
+
+  - The target id of progressbar
 
 - **#dot**
-   - The target id of timer dot
+  - The target id of timer dot
 
 ## Browser support
 
