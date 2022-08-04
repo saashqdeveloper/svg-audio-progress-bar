@@ -56,4 +56,4 @@ audioProgressbar.init("audio-container", "podcast-audio", "#curve", "#dot");
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT) © [Studio Matrix](https://studiomatrix.com.np/)
+[MIT](https://opensource.org/licenses/MIT)
